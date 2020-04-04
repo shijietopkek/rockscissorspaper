@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Rock Scissors Paper</title>
+        <meta charset = 'UTF-8'>
+    </head>
+    <body>
+        <script>
+            function computerPlay(){
+                let selection = ['Rock','Scissors','Paper']
+                index = Math.floor(Math.random()*selection.length)
+                return selection[index]
+            }
+            function playRound(playerSelection, computerSelection){
+                let x = playerSelection
+                let y = computerSelection
+                x = x.charAt(0).toUpperCase() + x.substring(1).toLowerCase()
+                if(x==y){
+                    return "Tie"
+                }else{
+                    if(x=='Rock' && y=='Paper'){
+                        return `You Lose! ${y} beats ${x}`
+                    }else if(x=='Paper' && y=='Scissors'){
+                        return `You Lose! ${y} beats ${x}`
+                    }else if(x=='Paper' && y=='Rock'){
+                        return `You Lose! ${y} beats ${x}`
+                    }else{
+                        return `You Win! ${x} beats ${y}`
+                    }
+                }
+            }
+            function game(){
+                for(let i=1;i<=5;i++){
+                    const playerSelection = prompt("Choose Rock/Scissors/Paper:")
+                    const computerSelection = computerPlay()
+                    console.log(playRound(playerSelection,computerSelection))
+                }
+            }
+        </script>
+    </body>
+</html>
